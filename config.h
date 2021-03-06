@@ -219,6 +219,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e nvim -c VimwikiIndex") },
+	{ ControlMask|ShiftMask,
+                        XK_v,		spawn,		SHCMD("clipmenu && xdotool type $(xsel --clipboard)") },
 	{ MODKEY|ShiftMask,	XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") },
 	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
