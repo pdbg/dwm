@@ -164,6 +164,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
 	{ AltMask,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("sysact") },
+	{ MODKEY|ControlMask,XK_q,		spawn,		SHCMD("slock") },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,	XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
 	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
@@ -189,8 +190,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_backslash,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("") }, */
 
-	{ MODKEY,			XK_a,		togglegaps,	{0} },
-	{ MODKEY|ShiftMask,	XK_a,		defaultgaps,	{0} },
+	{ MODKEY,			XK_a,			spawn,		SHCMD("alacritty") },
+	/* { MODKEY,			XK_a,		togglegaps,	{0} }, */
+	/* { MODKEY|ShiftMask,	XK_a,		defaultgaps,	{0} }, */
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
 	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_d,		spawn,          SHCMD("dmenu_run") },
@@ -204,14 +206,18 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_l,		setmfact,      	{.f = +0.05} },
 	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
 	{ MODKEY|ShiftMask,	XK_semicolon,	shifttag,	{ .i = 1 } },
-	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
+	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 0} },
+	{ MODKEY|ShiftMask,	XK_apostrophe,	togglescratch,	{.ui = 1} },
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
-	{ MODKEY|ShiftMask,	XK_Return,	togglescratch,	{.ui = 0} },
+	/* { MODKEY|ShiftMask,	XK_Return,	togglescratch,	{.ui = 0} }, */
+	{ MODKEY|ShiftMask,	XK_Return,	zoom,		{0} },
 
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
+	{ MODKEY|ShiftMask,	XK_z,		togglegaps,	{0} },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
+	{ MODKEY|ShiftMask,	XK_x,		defaultgaps,	{0} },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
 	/* { MODKEY,			XK_c,		spawn,		SHCMD("") }, */
 	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
@@ -252,7 +258,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_F10,		spawn,		SHCMD("dmenuumount") },
 	{ MODKEY,			XK_F11,		spawn,		SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
 	{ MODKEY,			XK_F12,		spawn,		SHCMD("remaps & notify-send \\\"⌨️ Keyboard remapping...\\\" \\\"Re-running keyboard defaults for any newly plugged-in keyboards.\\\"") },
-	{ MODKEY,			XK_space,	zoom,		{0} },
+	/* { MODKEY,			XK_space,	zoom,		{0} }, */
+	{ MODKEY,			XK_space,	spawn,          SHCMD("dmenu_run") },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
 
 	{ 0,				XK_Print,	spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
@@ -337,3 +344,4 @@ static Button buttons[] = {
 	{ ClkRootWin,	    	0,		Button2,	togglebar,	{0} },
 };
 
+// vim:fileencoding=utf-8:tabstop=4
