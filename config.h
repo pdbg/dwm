@@ -164,7 +164,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
 	{ AltMask,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("sysact") },
-	{ MODKEY|ControlMask,XK_q,		spawn,		SHCMD("slock") },
+	{ AltMask|ControlMask,XK_q,		spawn,		SHCMD("slock") },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,	XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
 	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
